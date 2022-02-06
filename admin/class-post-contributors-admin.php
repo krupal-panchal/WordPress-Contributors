@@ -143,8 +143,9 @@ class Post_Contributors_Admin {
 
 		// Sanitize the Data.
 		if ( ! empty( $_POST['author'] ) ) {
-			$author_data      = sanitize_text_field( wp_unslash( $_POST['author'] ) );
-			$contributor_data = implode( ', ', $author_data );
+			/* $author_data      = ;
+			$contributor_data = ; */
+			$contributor_data = sanitize_text_field( implode( ', ', wp_unslash( $_POST['author'] ) ) );
 		}
 
 		// Update the meta field.
@@ -169,7 +170,7 @@ class Post_Contributors_Admin {
 		$authors_id  = explode( ', ', $contributors_meta );
 
 		foreach ( $get_authors as $user ) { ?>
-			<input type="checkbox" name="author[]" value="<?php echo esc_attr( $user->ID ); ?>" <?php echo ( in_array( $user->ID, $authors_id, true ) ? 'checked' : '' ); ?>> <?php echo esc_html( $user->display_name ); ?>
+			<input type="checkbox" name="author[]" value="<?php echo esc_attr( $user->ID ); ?>" <?php echo ( in_array( (string) $user->ID, $authors_id, true ) ? 'checked' : '' ); ?>><?php echo esc_html( $user->display_name ); ?>
 		<?php }
 	}
 
