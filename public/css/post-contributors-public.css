@@ -1,0 +1,21 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+.post-contributors {
+    display: flex;
+    flex-wrap: wrap;
+}
+.gravtar-img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.gravtar-item {
+    margin-right: 10px;
+}
+.gravtar-item a {
+    display: flex;
+    align-items: center;
+}
